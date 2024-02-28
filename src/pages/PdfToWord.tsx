@@ -35,11 +35,11 @@ const PdfToWord = () => {
   return (
     <>
       <div ref={divRef} className='relative h-screen w-screen p-10'>
-        <div className='flex flex-col items-center gap-2'>
-          <h1 className='google-font text-3xl font-semibold'>
+        <div className='flex flex-col items-center text-center gap-2'>
+          <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
             PDF to WORD Converter
           </h1>
-          <p className='font-light text-gray-500'>
+          <p className='text-center font-light text-gray-500'>
             Convert your PDF to WORD documents with incredible accuracy.
           </p>
           <form>
