@@ -30,7 +30,11 @@ const PdfToWord = () => {
       let result = await convertApi.convert('pdf', 'docx', params);
       divRef.current.style.opacity = '1';
       setLoading(false);
-      window.open(result.files[0].Url);
+      if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+        window.open(result.files[0].Url);
+      } else {
+        window.open(result.files[0].Url, '_blank');
+      }
       setFile(null);
     } catch (error: any) {
       console.log(error);
