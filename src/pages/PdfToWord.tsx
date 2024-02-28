@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import ConvertApi from 'convertapi-js';
+import toast from 'react-hot-toast';
 
 const PdfToWord = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -24,12 +25,16 @@ const PdfToWord = () => {
     let convertApi = ConvertApi.auth(import.meta.env.VITE_API_SECRET);
     let params = convertApi.createParams();
     params.add('File', file);
-    setLoading(true);
-    let result = await convertApi.convert('pdf', 'docx', params);
-    divRef.current.style.opacity = '1';
-    setLoading(false);
-    window.open(result.files[0].Url);
-    setFile(null);
+    try {
+      setLoading(true);
+      let result = await convertApi.convert('pdf', 'docx', params);
+      divRef.current.style.opacity = '1';
+      setLoading(false);
+      window.open(result.files[0].Url);
+      setFile(null);
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
 
   return (
