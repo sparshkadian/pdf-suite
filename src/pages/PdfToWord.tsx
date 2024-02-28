@@ -33,7 +33,11 @@ const PdfToWord = () => {
       window.open(result.files[0].Url);
       setFile(null);
     } catch (error: any) {
-      toast.error(error.message);
+      console.log(error);
+      toast.error('Operation Failed!');
+      setLoading(false);
+      setFile(null);
+      divRef.current.style.opacity = '1';
     }
   };
 
