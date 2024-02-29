@@ -1,10 +1,13 @@
+import { useParams } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import ConvertApi from 'convertapi-js';
 import toast from 'react-hot-toast';
 import ConvertModal from '../components/Modals/ConvertModal';
 import ResultModal from '../components/Modals/ResultModal';
+import { Params } from '../types/index';
 
-const CompressPdf = () => {
+const PDFOperations = () => {
+  const { from, to, title, type } = useParams<Params>() as Params;
   const divRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -30,7 +33,7 @@ const CompressPdf = () => {
     params.add('File', file);
     try {
       setLoading(true);
-      let result = await convertApi.convert('pdf', 'compress', params);
+      let result = await convertApi.convert(from, to, params);
       divRef.current.style.opacity = '1';
       setLoading(false);
       const url = result.files[0].Url;
@@ -50,10 +53,10 @@ const CompressPdf = () => {
       <div ref={divRef} className='relative h-screen w-screen p-10'>
         <div className='flex flex-col items-center text-center gap-2'>
           <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
-            Compress PDF file
+            {title}
           </h1>
           <p className='text-center font-light text-gray-500'>
-            Reduce file size while optimizing for maximal PDF quality.
+            Convert your PDF to WORD documents with incredible accuracy.
           </p>
           <form>
             <input
@@ -75,7 +78,7 @@ const CompressPdf = () => {
       </div>
       {file && (
         <ConvertModal
-          type='Compress'
+          type={type}
           loading={loading}
           handlePdfToWord={handlePdfToWord}
         />
@@ -85,4 +88,4 @@ const CompressPdf = () => {
   );
 };
 
-export default CompressPdf;
+export default PDFOperations;

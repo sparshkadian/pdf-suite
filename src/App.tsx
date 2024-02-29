@@ -1,8 +1,7 @@
 import { GridBackground } from './components/BackgroundGrid';
 import PdfToolsList from './components/PdfToolsList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PdfToWord from './pages/PdfToWord';
-import CompressPdf from './pages/CompressPdf';
+import PDFOperations from './pages/PDFOperations';
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
@@ -18,8 +17,8 @@ const App = () => {
             </div>
           }
         />
-        <Route path='/pdf_to_word' element={<PdfToWord />} />
-        <Route path='/compress_pdf' element={<CompressPdf />} />
+
+        <Route path='/:type/:from/:to/:title' element={<PDFOperations />} />
       </Routes>
       <Toaster />
     </BrowserRouter>

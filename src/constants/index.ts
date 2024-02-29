@@ -6,6 +6,9 @@ export const tools = [
     description:
       'Easily convert your PDF files into easy to edit DOC and DOCX documents.',
     link: 'pdf_to_word',
+    from: 'pdf',
+    to: 'docx',
+    type: 'Convert',
   },
 
   {
@@ -14,6 +17,9 @@ export const tools = [
     title: 'Compress PDF',
     description: 'Recude file Size while optimizing for maxmial PDF quality.',
     link: 'compress_pdf',
+    from: 'pdf',
+    to: 'compress',
+    type: 'Compress',
   },
 
   {
