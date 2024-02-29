@@ -81,6 +81,8 @@ const PDFOperations = () => {
           type={type}
           loading={loading}
           handlePdfToWord={handlePdfToWord}
+          setFile={setFile}
+          divRef={divRef}
         />
       )}
       {fileUrl && <ResultModal fileUrl={fileUrl} setFileUrl={setFileUrl} />}

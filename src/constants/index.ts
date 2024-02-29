@@ -22,19 +22,21 @@ export const tools = [
     type: 'Compress',
   },
 
+  {
+    image: './word-file.png',
+    alt: 'pdf to JPG',
+    title: 'PDF to JPG',
+    description: 'Recude file Size while optimizing for maxmial PDF quality.',
+    link: 'pdf_to_jpg',
+    from: 'pdf',
+    to: 'JPG',
+    type: 'Convert',
+  },
   // {
   //   image: './word-file.png',
   //   alt: 'word to pdf',
   //   title: 'Word to PDF',
   //   description: 'Recude file Size while optimizing for maxmial PDF quality.',
   //   link: 'word_to_pdf',
-  // },
-
-  // {
-  //   image: './word-file.png',
-  //   alt: 'pdf to JPG',
-  //   title: 'PDF to JPG',
-  //   description: 'Recude file Size while optimizing for maxmial PDF quality.',
-  //   link: 'pdf_to_jpg',
   // },
 ];
