@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import ConvertApi from 'convertapi-js';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import ConvertModal from '../components/ConvertModal';
+import ResultModal from '../components/ResultModal';
 
 const PdfToWord = () => {
   const divRef = useRef<HTMLDivElement>(null);
@@ -9,7 +10,6 @@ const PdfToWord = () => {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [fileUrl, setFileUrl] = useState<string>('');
-  console.log(fileUrl);
 
   if (file && divRef.current) {
     divRef.current.style.opacity = '0.4';
@@ -35,7 +35,6 @@ const PdfToWord = () => {
       setLoading(false);
       const url = result.files[0].Url;
       setFileUrl(url);
-      // window.open(url, '_blank');
       setFile(null);
     } catch (error) {
       console.log(error);
@@ -75,39 +74,9 @@ const PdfToWord = () => {
         </div>
       </div>
       {file && (
-        <div className='rounded-md shadow-md w-[300px] h-[200px] bg-gray-200 fixed convert_modal p-5'>
-          <div
-            className={`w-full h-full flex ${
-              loading ? 'flex-col' : ''
-            } items-center justify-center`}
-          >
-            <button
-              onClick={handlePdfToWord}
-              className='font-semibold mt-2 p-3 bg-red-500 rounded-md text-white text-lg hover:opacity-90'
-            >
-              Convert File
-            </button>
-            {loading && <img src='./Spinner.gif' className='bg-gray-200' />}
-          </div>
-        </div>
+        <ConvertModal loading={loading} handlePdfToWord={handlePdfToWord} />
       )}
-      {fileUrl && (
-        <div className='flex flex-col items-center justify-center gap-2 rounded-md shadow-md h-[200px] bg-gray-200 fixed convert_modal p-5'>
-          <p className='text-lg font-semibold'>Click Link to Download File</p>
-          <Link to={fileUrl} className='text-blue-500'>
-            {fileUrl}
-          </Link>
-
-          <button
-            onClick={() => {
-              setFileUrl('');
-            }}
-            className='tracking-wider font-semibold mt-2 py-3 px-5 bg-red-500 rounded-md text-white text-lg hover:opacity-90'
-          >
-            Close
-          </button>
-        </div>
-      )}
+      {fileUrl && <ResultModal fileUrl={fileUrl} setFileUrl={setFileUrl} />}
     </>
   );
 };
