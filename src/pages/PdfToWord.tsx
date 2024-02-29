@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 import ConvertApi from 'convertapi-js';
 import toast from 'react-hot-toast';
-import ConvertModal from '../components/ConvertModal';
-import ResultModal from '../components/ResultModal';
+import ConvertModal from '../components/Modals/ConvertModal';
+import ResultModal from '../components/Modals/ResultModal';
 
 const PdfToWord = () => {
   const divRef = useRef<HTMLDivElement>(null);
