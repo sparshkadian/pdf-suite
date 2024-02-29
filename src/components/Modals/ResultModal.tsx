@@ -10,7 +10,7 @@ const ResultModal = ({
   return (
     <div className='flex flex-col items-center justify-center gap-2 rounded-md shadow-md w-[350px] h-[200px] bg-gray-200 fixed convert_modal p-5'>
       <p className='text-lg font-semibold'>Click Link to Download File</p>
-      <Link to={fileUrl} className='text-blue-500 border'>
+      <Link to={fileUrl} className='text-center text-blue-500'>
         {fileUrl}
       </Link>
 
