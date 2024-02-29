@@ -1,9 +1,11 @@
 const ConvertModal = ({
   loading,
+  type,
   handlePdfToWord,
 }: {
   loading: boolean;
-  handlePdfToWord: () => {};
+  type: string;
+  handlePdfToWord: () => void;
 }) => {
   return (
     <div className='rounded-md shadow-md w-[300px] h-[200px] bg-gray-200 fixed convert_modal p-5'>
@@ -16,7 +18,7 @@ const ConvertModal = ({
           onClick={handlePdfToWord}
           className='font-semibold mt-2 p-3 bg-red-500 rounded-md text-white text-lg hover:opacity-90'
         >
-          Convert File
+          {type} File
         </button>
         {loading && <img src='./Spinner.gif' className='bg-gray-200' />}
       </div>

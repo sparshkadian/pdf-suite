@@ -3,9 +3,8 @@ import ConvertApi from 'convertapi-js';
 import toast from 'react-hot-toast';
 import ConvertModal from '../components/Modals/ConvertModal';
 import ResultModal from '../components/Modals/ResultModal';
-// import { usePdfToWord } from '../hooks/usePdfToWord';
 
-const PdfToWord = () => {
+const CompressPdf = () => {
   const divRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -31,7 +30,7 @@ const PdfToWord = () => {
     params.add('File', file);
     try {
       setLoading(true);
-      let result = await convertApi.convert('pdf', 'docx', params);
+      let result = await convertApi.convert('pdf', 'compress', params);
       divRef.current.style.opacity = '1';
       setLoading(false);
       const url = result.files[0].Url;
@@ -46,23 +45,15 @@ const PdfToWord = () => {
     }
   };
 
-  // const handlePdfToWord = () => {
-  //   setLoading(true);
-  //   const url = usePdfToWord(file, divRef, 'pdf', 'docx', setFile, setFileUrl);
-  //   setFileUrl(url);
-  //   setLoading(false);
-  //   setFile(null);
-  // };
-
   return (
     <>
       <div ref={divRef} className='relative h-screen w-screen p-10'>
         <div className='flex flex-col items-center text-center gap-2'>
           <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
-            PDF to WORD Converter
+            Compress PDF file
           </h1>
           <p className='text-center font-light text-gray-500'>
-            Convert your PDF to WORD documents with incredible accuracy.
+            Reduce file size while optimizing for maximal PDF quality.
           </p>
           <form>
             <input
@@ -84,7 +75,7 @@ const PdfToWord = () => {
       </div>
       {file && (
         <ConvertModal
-          type='Convert'
+          type='Compress'
           loading={loading}
           handlePdfToWord={handlePdfToWord}
         />
@@ -94,4 +85,4 @@ const PdfToWord = () => {
   );
 };
 
-export default PdfToWord;
+export default CompressPdf;
