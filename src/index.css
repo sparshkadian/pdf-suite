@@ -48,8 +48,3 @@
 .hero__subtitle {
   @apply text-[25px] sm:text-[25px] text-center text-white font-light;
 }
-
-/* NAVBAR */
-.navbar__text {
-  @apply font-semibold tracking-tight text-lg;
-}

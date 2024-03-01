@@ -8,11 +8,3 @@ export interface ToolProps {
   to: string;
   type: string;
 }
-
-export interface Params {
-  from: string;
-  to: string;
-  title: string;
-  type: string;
-  [key: string]: string | undefined; //index Signature
-}

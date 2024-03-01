@@ -1,4 +1,6 @@
 'use client';
+import { useLocation } from 'react-router-dom';
+
 import React from 'react';
 import {
   motion,
@@ -29,10 +31,14 @@ export function Button({
   className?: string;
   [key: string]: any;
 }) {
+  const location = useLocation();
+
   return (
     <Component
       className={cn(
-        'bg-transparent relative text-xl  h-16 w-[140px] p-[1px] overflow-hidden ',
+        `${
+          location.pathname === '/' ? 'w-[140px] p-[1px]' : 'w-[170px] p-[2px]'
+        } bg-transparent relative text-xl h-16  overflow-hidden`,
         containerClassName
       )}
       style={{
@@ -56,7 +62,11 @@ export function Button({
 
       <div
         className={cn(
-          'relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white font-semibold text-lg flex items-center justify-center w-full h-full antialiased',
+          `${
+            location.pathname === '/'
+              ? 'bg-slate-900/[0.8] text-white border-slate-800'
+              : 'bg-white text-black'
+          } relative border backdrop-blur-xl font-semibold text-lg flex items-center justify-center w-full h-full antialiased`,
           className
         )}
         style={{

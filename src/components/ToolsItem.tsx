@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ToolsItem = ({ tool }: { tool: ToolProps }) => {
   return (
-    <Link
-      to={`/${tool.from === 'pdf' ? 'pdf' : 'word'}/${tool.type}/${tool.from}/${
-        tool.to
-      }/${tool.title}`}
-    >
+    <Link to={`/${tool.from === 'pdf' ? 'pdf' : 'word'}`} state={tool}>
       <BackgroundGradient className='h-[250px] sm:h-[300px] w-[300px]  flex flex-col items-center text-center gap-3 max-w-sm p-4 sm:p-10 bg-zinc-100'>
         <img
           src={tool.image}

@@ -22,11 +22,8 @@ const App = () => {
           }
         />
 
-        <Route path='/pdf/:type/:from/:to/:title' element={<PDFOperations />} />
-        <Route
-          path='/word/:type/:from/:to/:title'
-          element={<WordOperations />}
-        />
+        <Route path='/pdf' element={<PDFOperations />} />
+        <Route path='/word' element={<WordOperations />} />
         <Route path='/:toolType' element={<ToolsList />} />
       </Routes>
       <Toaster />

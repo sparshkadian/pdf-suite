@@ -1,13 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import ConvertApi from 'convertapi-js';
 import toast from 'react-hot-toast';
 import ConvertModal from '../components/Modals/ConvertModal';
 import ResultModal from '../components/Modals/ResultModal';
-import { Params } from '../types/index';
+import { Button } from '../components/ui/moving-border';
 
 const PDFOperations = () => {
-  const { from, to, title, type } = useParams<Params>() as Params;
+  let { state } = useLocation();
   const divRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
@@ -33,7 +33,7 @@ const PDFOperations = () => {
     params.add('File', file);
     try {
       setLoading(true);
-      let result = await convertApi.convert(from, to, params);
+      let result = await convertApi.convert(state.from, state.to, params);
       divRef.current.style.opacity = '1';
       setLoading(false);
       const url = result.files[0].Url;
@@ -53,10 +53,10 @@ const PDFOperations = () => {
       <div ref={divRef} className='relative h-screen w-screen p-10'>
         <div className='mt-5 flex flex-col items-center text-center gap-2'>
           <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
-            {title}
+            {state.title}
           </h1>
           <p className='text-center font-light text-gray-500'>
-            Convert your PDF to WORD documents with incredible accuracy.
+            {state.description}
           </p>
           <form>
             <input
@@ -66,19 +66,15 @@ const PDFOperations = () => {
               className='hidden'
             />
 
-            <button
-              onClick={() => fileRef.current?.click()}
-              type='button'
-              className='font-semibold mt-2 p-3 bg-red-500 rounded-md text-white text-lg hover:opacity-90'
-            >
+            <Button onClick={() => fileRef.current?.click()} type='button'>
               Select PDF File
-            </button>
+            </Button>
           </form>
         </div>
       </div>
       {file && (
         <ConvertModal
-          type={type}
+          type={state.type}
           loading={loading}
           handlePdfToWord={handlePdfToWord}
           setFile={setFile}
