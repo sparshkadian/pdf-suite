@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const ToolsList = () => {
   const params = useParams();
   return (
-    <div className='main'>
+    <>
       <div className='gradient'></div>
       <div className='p-10 lg:max-w-7xl mx-auto'>
         <div className='mt-6 flex flex-wrap md:flex justify-center gap-10 items-center'>
@@ -15,7 +15,7 @@ const ToolsList = () => {
             : WordTools.map((tool, i) => <ToolsItem key={i} tool={tool} />)}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

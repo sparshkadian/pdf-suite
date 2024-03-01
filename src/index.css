@@ -64,40 +64,12 @@
   @apply text-[25px] sm:text-[25px] text-center text-white font-light;
 }
 
-/* PDF OPERATIONS */
-.main {
-  width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-}
-
-.main::before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
-  position: absolute;
-  content: '';
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-
-.main::after {
-  content: '';
-  background-image: url('./grid.svg');
-  z-index: -2;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 1;
-  filter: invert(1);
-}
+/* TOOLS LIST */
 
 .gradient {
   height: fit-content;
   z-index: 0;
   width: 100%;
-  max-width: 640px;
   background-image: radial-gradient(
       at 27% 37%,
       hsla(215, 98%, 61%, 1) 0px,
