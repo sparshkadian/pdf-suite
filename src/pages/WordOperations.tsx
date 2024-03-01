@@ -51,7 +51,7 @@ const WordOperations = () => {
   return (
     <>
       <div ref={divRef} className='relative h-screen w-screen p-10'>
-        <div className='flex flex-col items-center text-center gap-2'>
+        <div className='mt-5 flex flex-col items-center text-center gap-2'>
           <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
             {title}
           </h1>
