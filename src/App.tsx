@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PDFOperations from './pages/PDFOperations';
 import WordOperations from './pages/WordOperations';
 import { Toaster } from 'react-hot-toast';
+import NavBar from './components/NavBar';
 import LandingPage from './pages/LandingPage';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route
           path='/'

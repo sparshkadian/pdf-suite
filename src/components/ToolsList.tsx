@@ -7,7 +7,7 @@ const ToolsList = () => {
   const params = useParams();
   return (
     <div className='p-10 lg:max-w-7xl mx-auto'>
-      <div className='flex flex-wrap md:flex justify-center gap-10 items-center'>
+      <div className='mt-6 flex flex-wrap md:flex justify-center gap-10 items-center'>
         {params.toolType === 'pdfTools'
           ? PdfTools.map((tool, i) => <ToolsItem key={i} tool={tool} />)
           : WordTools.map((tool, i) => <ToolsItem key={i} tool={tool} />)}

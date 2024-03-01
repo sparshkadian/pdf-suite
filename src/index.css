@@ -38,3 +38,29 @@
     transform: rotate(360deg);
   }
 }
+
+/* LANDING PAGE */
+
+.hero__title {
+  @apply tracking-tight 2xl:text-[110px] sm:text-[70px] text-[55px] font-bold;
+  background: linear-gradient(120deg, #a086d3 0%, #6959b3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+}
+
+.hero__subtitle {
+  @apply text-[25px] sm:text-[25px] text-center;
+  font-style: italic;
+  background: linear-gradient(120deg, #a086d3 0%, #6959b3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+}
+
+/* NAVBAR */
+.navbar__text {
+  @apply font-semibold tracking-tight text-lg text-purple-700;
+}
