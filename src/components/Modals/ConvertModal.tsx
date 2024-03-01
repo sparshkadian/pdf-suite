@@ -14,7 +14,7 @@ const ConvertModal = ({
   setFile: (arg: File | null) => void;
 }) => {
   return (
-    <div className='rounded-md shadow-md w-[300px] h-[200px] bg-gray-200 fixed convert_modal p-5'>
+    <div className='overflow-hidden rounded-md shadow-md w-[300px] h-[200px] bg-gray-200 fixed convert_modal p-5'>
       <div className='relative'>
         <img
           src='/close.png'
@@ -30,7 +30,7 @@ const ConvertModal = ({
           }}
         />
         <div
-          className={`w-full h-[150px] flex ${
+          className={`w-full h-[190px] flex ${
             loading ? 'flex-col' : ''
           } items-center justify-center`}
         >
@@ -40,7 +40,7 @@ const ConvertModal = ({
           >
             {type} File
           </button>
-          {loading && <img src='./Spinner.gif' className='bg-gray-200' />}
+          {loading && <img src='/Spinner.gif' className='bg-gray-200' />}
         </div>
       </div>
     </div>

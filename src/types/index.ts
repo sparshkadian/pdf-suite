@@ -1,4 +1,4 @@
-export interface pdfFeatureProps {
+export interface ToolProps {
   image: string;
   alt: string;
   title: string;

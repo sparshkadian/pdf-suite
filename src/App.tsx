@@ -1,8 +1,10 @@
 import { GridBackground } from './components/BackgroundGrid';
-import PdfToolsList from './components/PdfToolsList';
+import ToolsList from './components/ToolsList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PDFOperations from './pages/PDFOperations';
+import WordOperations from './pages/WordOperations';
 import { Toaster } from 'react-hot-toast';
+import LandingPage from './pages/LandingPage';
 
 const App = () => {
   return (
@@ -13,12 +15,17 @@ const App = () => {
           element={
             <div className='relative'>
               <GridBackground />
-              <PdfToolsList />
+              <LandingPage />
             </div>
           }
         />
 
-        <Route path='/:type/:from/:to/:title' element={<PDFOperations />} />
+        <Route path='/pdf/:type/:from/:to/:title' element={<PDFOperations />} />
+        <Route
+          path='/word/:type/:from/:to/:title'
+          element={<WordOperations />}
+        />
+        <Route path='/:toolType' element={<ToolsList />} />
       </Routes>
       <Toaster />
     </BrowserRouter>
