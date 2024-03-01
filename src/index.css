@@ -41,6 +41,21 @@
 
 /* LANDING PAGE */
 
+.hero__content {
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .hero__title {
   @apply tracking-tight 2xl:text-[110px] sm:text-[70px] text-[55px] font-bold text-white;
 }
