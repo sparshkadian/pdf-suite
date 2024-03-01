@@ -1,27 +1,23 @@
 import { Link } from 'react-router-dom';
+import { LampContainer } from '../components/ui/lamp';
+import { Button } from '../components/ui/moving-border';
 
 const LandingPage = () => {
   return (
-    <div className='h-screen w-screen flex justify-center items-center'>
+    <LampContainer className='h-screen w-screen flex justify-center items-center'>
       <div className='flex flex-col items-center leading-tight'>
-        <h1 className='hero__title'>PDF Suite</h1>
+        <h1 className='hero__title text-white'>PDF Suite</h1>
         <p className='hero__subtitle'>Do more with your PDFs and Words.</p>
-        <div className='mt-4 flex gap-2'>
+        <div className='mt-10 flex gap-4'>
           <Link to='/pdfTools'>
-            <button className='hero__button'>
-              <span className='button__inner-span' />
-              <span className='button__outer-span'>PDF Tools</span>
-            </button>
+            <Button>PDF Tools</Button>
           </Link>
           <Link to='/wordTools'>
-            <button className='hero__button'>
-              <span className='button__inner-span' />
-              <span className='button__outer-span'>Word Tools</span>
-            </button>
+            <Button>Word Tools</Button>
           </Link>
         </div>
       </div>
-    </div>
+    </LampContainer>
   );
 };
 
