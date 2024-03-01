@@ -1,11 +1,15 @@
-import { pdfFeatureProps } from '../types';
+import { ToolProps } from '../types';
 import { BackgroundGradient } from './ui/background-gradient';
 import { Link } from 'react-router-dom';
 
-const PdfToolsItem = ({ tool }: { tool: pdfFeatureProps }) => {
+const ToolsItem = ({ tool }: { tool: ToolProps }) => {
   return (
-    <Link to={`/${tool.type}/${tool.from}/${tool.to}/${tool.title}`}>
-      <BackgroundGradient className='h-[250px] sm:h-[300px] flex flex-col items-center text-center gap-3 max-w-sm p-4 sm:p-10 bg-zinc-100'>
+    <Link
+      to={`/${tool.from === 'pdf' ? 'pdf' : 'word'}/${tool.type}/${tool.from}/${
+        tool.to
+      }/${tool.title}`}
+    >
+      <BackgroundGradient className='h-[250px] sm:h-[300px] w-[300px]  flex flex-col items-center text-center gap-3 max-w-sm p-4 sm:p-10 bg-zinc-100'>
         <img
           src={tool.image}
           alt={tool.alt}
@@ -20,4 +24,4 @@ const PdfToolsItem = ({ tool }: { tool: pdfFeatureProps }) => {
   );
 };
 
-export default PdfToolsItem;
+export default ToolsItem;
