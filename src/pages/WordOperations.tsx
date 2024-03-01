@@ -55,9 +55,7 @@ const WordOperations = () => {
           <h1 className='google-font text-2xl sm:text-4xl font-semibold'>
             {state.title}
           </h1>
-          <p className='text-center font-light text-gray-500'>
-            {state.description}
-          </p>
+          <p className='text-center text-black/70'>{state.description}</p>
           <form>
             <input
               onChange={handleFileChange}
